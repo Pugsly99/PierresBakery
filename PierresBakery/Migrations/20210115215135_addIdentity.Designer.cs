@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PierresBakery.Models;
 
 namespace PierresBakery.Migrations
 {
     [DbContext(typeof(PierresBakeryContext))]
-    partial class PierresBakeryContextModelSnapshot : ModelSnapshot
+    [Migration("20210115215135_addIdentity")]
+    partial class addIdentity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -181,6 +183,8 @@ namespace PierresBakery.Migrations
 
                     b.Property<string>("FlavorName");
 
+                    b.Property<string>("User");
+
                     b.HasKey("FlavorId");
 
                     b.ToTable("Flavors");
@@ -193,11 +197,7 @@ namespace PierresBakery.Migrations
 
                     b.Property<string>("TreatName");
 
-                    b.Property<string>("UserId");
-
                     b.HasKey("TreatId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Treats");
                 });
@@ -263,13 +263,6 @@ namespace PierresBakery.Migrations
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("PierresBakery.Models.Treat", b =>
-                {
-                    b.HasOne("PierresBakery.Models.ApplicationUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("PierresBakery.Models.TreatFlavor", b =>
