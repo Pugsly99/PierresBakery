@@ -3,24 +3,24 @@ using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 using System.IO;
 
-namespace Template.Models
+namespace PierresBakery.Models
 {
-  public class TemplateContextFactory : IDesignTimeDbContextFactory<TemplateContext>
+  public class PierresBakeryContextFactory : IDesignTimeDbContextFactory<PierresBakeryContext>
   {
 
-    TemplateContext IDesignTimeDbContextFactory<TemplateContext>.CreateDbContext(string[] args)
+    PierresBakeryContext IDesignTimeDbContextFactory<PierresBakeryContext>.CreateDbContext(string[] args)
     {
       IConfigurationRoot configuration = new ConfigurationBuilder()
           .SetBasePath(Directory.GetCurrentDirectory())
           .AddJsonFile("appsettings.json")
           .Build();
 
-      var builder = new DbContextOptionsBuilder<TemplateContext>();
+      var builder = new DbContextOptionsBuilder<PierresBakeryContext>();
       var connectionString = configuration.GetConnectionString("DefaultConnection");
 
       builder.UseMySql(connectionString);
 
-      return new TemplateContext(builder.Options);
+      return new PierresBakeryContext(builder.Options);
     }
   }
 }
