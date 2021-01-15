@@ -2,28 +2,27 @@
   Layout = "_Layout";
 }
 
-@model Template.Models.Parent;
+@model PierresBakery.Models.Treat;
 
-<h2>PARENT Details</h2>
+<h2>Treat Details</h2>
 <hr />
-<h3>@Html.DisplayNameFor(model => model.ParentName): @Html.DisplayFor(model => model.ParentName)</h3>
-<h3>@Html.DisplayNameFor(model => model.StartDate): @Html.DisplayFor(model => model.StartDate)</h3>
+<h3>@Html.DisplayNameFor(model => model.TreatName): @Html.DisplayFor(model => model.TreatName)</h3>
 
 @if(@Model.JoinEntries.Count == 0)
 {
-  <p>This PARENT does not contain any CHILDS</p>
+  <p>This Treat does not contain any Flavors</p>
 }
 else
 {
-  <h4>CHILDS the PARENT contains:</h4>
+  <h4>Flavors the Treat contains:</h4>
   <ul>
   @foreach(var join in Model.JoinEntries)
   {
-    <li>@join.Child.ChildName</li>
+    <li>@join.Flavor.FlavorName</li>
   }
   </ul>
 }
 
-<p>@Html.ActionLink("Back to Parent", "Index")</p>
-<p>@Html.ActionLink("Edit Parent", "Edit", new { id = Model.ParentId })</p>
-<p>@Html.ActionLink("Delete Parent", "Delete", new { id = Model.ParentId })</p>
+<p>@Html.ActionLink("Back to Treat", "Index")</p>
+<p>@Html.ActionLink("Edit Treat", "Edit", new { id = Model.TreatId })</p>
+<p>@Html.ActionLink("Delete Treat", "Delete", new { id = Model.TreatId })</p>

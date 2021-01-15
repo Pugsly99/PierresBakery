@@ -2,24 +2,18 @@
   Layout = "_Layout";
 }
 
-@model Template.Models.Parent
+@model PierresBakery.Models.Treat
 
-<h4>Edit a parent</h4>
+<h4>Edit a Treat</h4>
 @using (Html.BeginForm())
 {
-    @Html.HiddenFor(model => model.ParentId)
-    @* @Html.HiddenFor(model => model.StartDate) *@
+    @Html.HiddenFor(model => model.TreatId)
 
-    @Html.LabelFor(model => model.ParentName)
-    @Html.EditorFor(model => model.ParentName)
+    @Html.LabelFor(model => model.TreatName)
+    @Html.EditorFor(model => model.TreatName)
 
-    @* @Html.DisplayNameFor(model => model.StartDate) 
-    @Html.EditorFor(model => model.StartDate) *@
-    
-    @Html.LabelFor(model => model.StartDate)
-    @Html.EditorFor(model => model.StartDate)
   
 
     <input type="submit" value="Edit" />
 }
-<p>@Html.ActionLink("Show all parents", "Index")</p>
+<p>@Html.ActionLink("Show all treats", "Index")</p>
