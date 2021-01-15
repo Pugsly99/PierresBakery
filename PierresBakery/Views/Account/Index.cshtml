@@ -1,0 +1,42 @@
+@{
+  Layout = "_Layout";
+}
+
+@using System.Security.Claims;
+@using PierresBakery.Models;
+@model IEnumerable<PierresBakery.Models.Treat>
+
+<h2>Authentication with Identity</h2>
+<hr />
+
+@if (User.Identity.IsAuthenticated)
+{
+  <p>Hey @User.Identity.Name!</p>
+
+  @if (Model.Any())
+  {
+    <ul>
+      @foreach (Treat treat in Model)
+      {
+        <li>Treat Name : @Html.ActionLink($"{treat.TreatName}", "Details", "Treats", new { id = treat.TreatId })</li>
+        @using (Html.BeginForm("Return", "Checkouts"))
+        {
+          @Html.Hidden("treatId", @treat.TreatId)
+          @Html.Hidden("treatName", @treat.TreatName)
+          <input type="submit" value="Return" />
+        }
+      }
+    </ul>
+  }
+  else
+  {
+  <h3>No treats selected!</h3>
+  }
+}
+
+    @using (Html.BeginForm("LogOff", "Account"))
+    {
+      <input type="submit" class="btn btn-danger btn-xs" value="Log out" />
+    } 
+    
+<p>@Html.ActionLink("Log in", "Login")</p>
