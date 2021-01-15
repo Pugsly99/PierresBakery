@@ -3,9 +3,14 @@ using PierresBakery.Models;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace PierresBakery.Controllers
 {
+  [Authorize]
   public class TreatsController : Controller // allows TreatsController to operate as a Controller
   {
     private readonly PierresBakeryContext _db; 
