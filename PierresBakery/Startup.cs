@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
-using Template.Models;
+using PierresBakery.Models;
 
-namespace Template
+namespace PierresBakery
 {
   public class Startup
   {
@@ -25,7 +25,7 @@ namespace Template
       services.AddMvc();
 
       services.AddEntityFrameworkMySql()
-          .AddDbContext<TemplateContext>(options => options
+          .AddDbContext<PierresBakeryContext>(options => options
           .UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
     }
 
