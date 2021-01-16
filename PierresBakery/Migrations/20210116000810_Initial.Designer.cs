@@ -9,8 +9,8 @@ using PierresBakery.Models;
 namespace PierresBakery.Migrations
 {
     [DbContext(typeof(PierresBakeryContext))]
-    [Migration("20210115234409_addIdentity3")]
-    partial class addIdentity3
+    [Migration("20210116000810_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -14,8 +14,10 @@ namespace PierresBakery.Controllers
   public class TreatsController : Controller // allows TreatsController to operate as a Controller
   {
     private readonly PierresBakeryContext _db; 
-    public TreatsController(PierresBakeryContext db)  
+    private readonly UserManager<ApplicationUser> _userManager;
+    public TreatsController(UserManager<ApplicationUser> userManager, PierresBakeryContext db)
     {
+      _userManager = userManager;
       _db = db;
     }
 
@@ -31,8 +33,11 @@ namespace PierresBakery.Controllers
     }
 
     [HttpPost]
-    public ActionResult Create(Treat treat)
+    public async Task<ActionResult> Create(Treat treat)
     {
+      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      var currentUser = await _userManager.FindByIdAsync(userId);
+      treat.User = currentUser.Id;
       _db.Treats.Add(treat);
       _db.SaveChanges();
       return RedirectToAction("Index");
