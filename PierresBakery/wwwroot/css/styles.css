@@ -1,21 +1,39 @@
-.container {
-  background-color: rgb(134, 206, 248);
+body {
+  background: rgb(238,174,202);
+  background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+  background-position: auto;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  padding: 20px;
+}
+
+a {
+  color:black;
+}
+
+a:hover {
+  color: goldenrod;
 }
 
 h1 {
   text-align: center;
+  color: black;
 }
 
 h2 {
   text-align: center;
+  color: black;
 }
 
 h3 {
   text-align: center;
+  color: black;
 }
 
 h4 {
   text-align: center;
+  color: black;
 }
 
 
