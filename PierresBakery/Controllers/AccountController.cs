@@ -42,7 +42,7 @@ namespace PierresBakery.Controllers
       IdentityResult result = await _userManager.CreateAsync(user, model.Password);
       if (result.Succeeded)
       {
-        return RedirectToAction("Index");
+        return RedirectToAction("Login");
       }
       else
       {
@@ -73,7 +73,7 @@ namespace PierresBakery.Controllers
     public async Task<ActionResult> LogOff()
     {
       await _signInManager.SignOutAsync();
-      return RedirectToAction("Index");
+      return RedirectToAction("Logoff");
     }
   }
 }

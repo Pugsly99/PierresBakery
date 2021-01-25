@@ -1,0 +1,13 @@
+@{
+  Layout = "_Layout";
+}
+
+@using System.Security.Claims;
+@using PierresBakery.Models;
+@model IEnumerable<PierresBakery.Models.Treat>
+
+<h2>Your account has been logged off!</h2>
+<hr />
+    
+<p>@Html.ActionLink("Back to Home", "Index", "Home")</p>
+<p>@Html.ActionLink("Login here", "Login", "Account")</p>
