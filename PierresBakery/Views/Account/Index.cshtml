@@ -6,12 +6,17 @@
 @using PierresBakery.Models;
 @model IEnumerable<PierresBakery.Models.Treat>
 
-<h2>Your Logged In</h2>
-<hr />
-
 @if (User.Identity.IsAuthenticated)
 {
+  <h2>Your Logged In</h2>
+<hr />
   <p>Hey @User.Identity.Name!</p>
+<hr />
+
+    @using (Html.BeginForm("LogOff", "Account"))
+    {
+      <input type="submit" class="btn btn-danger btn-xs" value="Log out" />
+    } 
 
   @if (Model.Any())
   {
@@ -34,9 +39,5 @@
   }
 }
 
-    @using (Html.BeginForm("LogOff", "Account"))
-    {
-      <input type="submit" class="btn btn-danger btn-xs" value="Log out" />
-    } 
     
-<p>@Html.ActionLink("Back to list", "Index", "Home")</p>
+<p>@Html.ActionLink("Back to Homepage", "Index", "Home")</p>

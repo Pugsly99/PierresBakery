@@ -73,7 +73,7 @@ namespace PierresBakery.Controllers
     public async Task<ActionResult> LogOff()
     {
       await _signInManager.SignOutAsync();
-      return RedirectToAction("Logoff");
+      return RedirectToAction("Index", "Home");
     }
   }
 }
