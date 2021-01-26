@@ -1,13 +1,10 @@
 # **PierresBakery.Solution**
 Project Initiated: 2021-01-15<br>
-Updated: 2021-01-15
+Updated: 2021-01-25
 
 ## **Project Description**
 
 This applications tracks and lists new treats and flavors associtaed with those treats. Users can also sign in and creat treats under their own account and have a running log of all treats created.
-
-
-
 
 
 ## **Required for Use**
