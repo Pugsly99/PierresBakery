@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Identity;
 namespace PierresBakery.Controllers
 {
   [Authorize]
-  public class TreatsController : Controller // allows TreatsController to operate as a Controller
+  public class TreatsController : Controller 
   {
     private readonly PierresBakeryContext _db; 
     private readonly UserManager<ApplicationUser> _userManager;

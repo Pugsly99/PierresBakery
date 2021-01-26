@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using PierresBakery.Models;
-using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -35,9 +34,6 @@ namespace PierresBakery.Controllers
     [HttpPost]
     public ActionResult Create(Flavor flavor, int TreatId)
     {
-      // var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-      // var currentUser = await _userManager.FindByIdAsync(userId);
-      // flavor.User = currentUser;
       _db.Flavors.Add(flavor);
       if (TreatId != 0)
       {
@@ -59,7 +55,7 @@ namespace PierresBakery.Controllers
     public ActionResult Edit(int id)
     {
       var thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
-      ViewBag.TreatId = new SelectList(_db.Treats, "TreatId", "TreatName"); // ViewBag only transfers data from controller to view
+      ViewBag.TreatId = new SelectList(_db.Treats, "TreatId", "TreatName");
       return View(thisFlavor);
     }
     
@@ -93,7 +89,6 @@ namespace PierresBakery.Controllers
         return RedirectToAction("Index");
     }
   
-
     public ActionResult Delete(int id)
     {
       var thisFlavor = _db.Flavors.FirstOrDefault(flavors => flavors.FlavorId == id);

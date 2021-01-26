@@ -167,6 +167,7 @@ There are no known bugs
 * Bootstrap
 * Razor
 * dotnet script, REPL
+* Identity
   
 ## **Authors and Contributors**
 Authored by: Ryland Adams
